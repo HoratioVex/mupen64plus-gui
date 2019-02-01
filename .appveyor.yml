@@ -1,9 +1,7 @@
-init:
-   - set QTDIR=C:\Qt\5.7.0\mingw53_32
-   - set PATH=%PATH%;C:\Qt\5.7.0\mingw53_32\bin;C:\Qt\Tools\QtCreator\bin;C:\MinGW\bin
-   
 install:
-  - qmake mupen64plus-gui.pro
+ - set QTDIR=C:\Qt\5.7.0\mingw53_32
+ - set PATH=%PATH%;C:\Qt\5.7.0\mingw53_32\bin;C:\Qt\Tools\QtCreator\bin;C:\MinGW\bin
+ - qmake mupen64plus-gui.pro
     
 build_script:
   - make -j`nproc`
