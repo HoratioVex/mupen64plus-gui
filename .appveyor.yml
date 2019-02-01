@@ -6,4 +6,4 @@ install:
  - qmake mupen64plus-gui.pro
     
 build_script:
-  - mingw32-make -j`nproc`
+  - mingw32-make .qmake.stash
