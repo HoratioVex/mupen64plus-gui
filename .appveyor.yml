@@ -1,23 +1,23 @@
 environment:
+  CTEST_OUTPUT_ON_FAILURE: 1
+  SDL2_VERSION: 2.0.9
+  SDL2_MIXER_VERSION: 2.0.4
+  QTDIR: C:\Qt\5.6.3
+  MINGW_PATH: C:\MinGW
+  SDLDIR: C:\MinGW
   matrix:
-    - QTDIR: C:\Qt\5.6.3\mingw49_32
-    - QTDIR: C:\Qt\5.6.3\msvc2013
-    - QTDIR: C:\Qt\5.6.3\msvc2013_64
-    - QTDIR: C:\Qt\5.6.3\msvc2015
-    - QTDIR: C:\Qt\5.6.3\msvc2015_64
-    - QTDIR: C:\Qt\5.7\mingw53_32
-    - QTDIR: C:\Qt\5.7\msvc2015
-    - QTDIR: C:\Qt\5.9.5\mingw53_32
-    - QTDIR: C:\Qt\5.9.5\msvc2013_64
-    - QTDIR: C:\Qt\5.9.5\msvc2015
-    - QTDIR: C:\Qt\5.9.5\msvc2015_64
-    - QTDIR: C:\Qt\5.10.1\mingw53_32
-    - QTDIR: C:\Qt\5.10.1\msvc2013_64
-    - QTDIR: C:\Qt\5.10.1\msvc2015
-    - QTDIR: C:\Qt\5.10.1\msvc2015_64
-    - QTDIR: C:\Qt\5.11.1\mingw53_32
-    - QTDIR: C:\Qt\5.11.1\msvc2015
-    - QTDIR: C:\Qt\5.11.1\msvc2015_64
+    - APPVEYOR_BUILD_WORKER_IMAGE: Visual Studio 2015
+      COMPILER: mingw
+      PLATFORMTOOLSET: "v140"
+    - APPVEYOR_BUILD_WORKER_IMAGE: Visual Studio 2017
+      COMPILER: msvc
+    - APPVEYOR_BUILD_WORKER_IMAGE: Visual Studio 2015
+      COMPILER: mingw
+      CMAKE_BUILD_TYPE: Release
+      PLATFORMTOOLSET: "v140"
+
+platform:
+  - x86
 
 install:
   - qmake mupen64plus-gui.pro
