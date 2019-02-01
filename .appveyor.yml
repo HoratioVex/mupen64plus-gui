@@ -3,15 +3,25 @@ image: Visual Studio 2015
 install:
  - set QTDIR=C:\Qt\latest\mingw53_32
  - set PATH=%PATH%;C:\Qt\latest\mingw53_32;C:\Qt\latest\mingw53_32\bin;C:\Qt\Tools\QtCreator\bin;C:\MinGW\bin
+ 
  - IF NOT EXIST %APPVEYOR_BUILD_FOLDER%\SDL2-devel-%SDL2_VERSION%-mingw.tar.gz appveyor DownloadFile http://libsdl.org/release/SDL2-devel-%SDL2_VERSION%-mingw.tar.gz
+ 
   - 7z x SDL2-devel-%SDL2_VERSION%-mingw.tar.gz -so | 7z x -si -ttar -oC:\
+  
   - echo y | xcopy C:\SDL2-%SDL2_VERSION%\i686-w64-mingw32\* %MINGW_PATH%\ /S
+  
   - IF NOT EXIST %APPVEYOR_BUILD_FOLDER%\SDL2_mixer-devel-%SDL2_MIXER_VERSION%-mingw.tar.gz appveyor DownloadFile https://www.libsdl.org/projects/SDL_mixer/release/SDL2_mixer-devel-%SDL2_MIXER_VERSION%-mingw.tar.gz
+  
   - 7z x SDL2_mixer-devel-%SDL2_MIXER_VERSION%-mingw.tar.gz -so | 7z x -si -ttar -oC:\
+  
   - echo y | xcopy C:\SDL2_mixer-%SDL2_MIXER_VERSION%\i686-w64-mingw32\* %MINGW_PATH%\ /S
+  
   - IF NOT EXIST %APPVEYOR_BUILD_FOLDER%\SDL2_image-devel-%SDL2_IMAGE_VERSION%-mingw.tar.gz appveyor DownloadFile https://www.libsdl.org/projects/SDL_image/release/SDL2_image-devel-%SDL2_IMAGE_VERSION%-mingw.tar.gz
+  
   - 7z x SDL2_image-devel-%SDL2_IMAGE_VERSION%-mingw.tar.gz -so | 7z x -si -ttar -oC:\
+  
   - echo y | xcopy C:\SDL2_image-%SDL2_IMAGE_VERSION%\i686-w64-mingw32\* %MINGW_PATH%\ /S
+  
  - qmake mupen64plus-gui.pro
     
 build_script:
