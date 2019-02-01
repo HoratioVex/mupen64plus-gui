@@ -3,7 +3,7 @@ image: Visual Studio 2015
 install:
  - set QTDIR=C:\Qt\latest\mingw53_32
  - set PATH=%PATH%;C:\Qt\latest\mingw53_32;C:\Qt\latest\mingw53_32\bin;C:\Qt\Tools\QtCreator\bin;C:\MinGW\bin
- - qmake mupen64plus-gui.pro
+ - qmake -o Makefile mupen64plus-gui.pro
     
 build_script:
-  - mingw32-make .qmake.stash
+  - mingw32-make Makefile
