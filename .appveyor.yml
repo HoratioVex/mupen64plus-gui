@@ -1,11 +1,8 @@
 environment:
-    matrix:
-    - QTDIR: C:\Qt\5.6\mingw53_32
-      cname: mingw
-    - QTDIR: C:\Qt\5.11\mingw53_32
-      cname: mingw
+   QTDIR: C:\Qt\5.6\mingw53_32
 
 install:
+  - set PATH=%PATH%;%QTDIR%\bin;%MINGW%\bin
   - '%QTDIR%\bin\qtenv2.bat'
   - qmake mupen64plus-gui.pro
     
