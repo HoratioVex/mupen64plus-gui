@@ -6,5 +6,4 @@ install:
  - qmake -o Makefile mupen64plus-gui.pro
     
 build_script:
-  - type Makefile
-  - mingw32-make mupen64plus-gui
+  - mingw32-make 
