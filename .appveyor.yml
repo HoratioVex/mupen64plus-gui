@@ -6,5 +6,4 @@ install:
  - qmake mupen64plus-gui.pro
     
 build_script:
-  - dir c:\mingw\bin
-  - make -j`nproc`
+  - mingw32-make -j`nproc`
