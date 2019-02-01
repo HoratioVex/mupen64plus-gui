@@ -1,10 +1,9 @@
 image: Visual Studio 2015
 
 install:
- - set QTDIR=C:\Qt\5.7.0\mingw53_32
- - set PATH=%PATH%;C:\Qt\5.7.0\mingw53_32;C:\Qt\5.7.0\mingw53_32\bin;C:\Qt\Tools\QtCreator\bin;C:\MinGW\bin
- - path
- - C:\Qt\5.7.0\mingw53_32\bin\qmake.exe mupen64plus-gui.pro
+ - set QTDIR=C:\Qt\latest\mingw53_32
+ - set PATH=%PATH%;C:\Qt\latest\mingw53_32;C:\Qt\latest\mingw53_32\bin;C:\Qt\Tools\QtCreator\bin;C:\MinGW\bin
+ - qmake mupen64plus-gui.pro
     
 build_script:
   - make -j`nproc`
