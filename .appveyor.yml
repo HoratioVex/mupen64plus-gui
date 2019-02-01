@@ -1,6 +1,6 @@
 init:
-   - set QTDIR=C:\Qt\5.6\mingw53_32
-   - set PATH=%PATH%;C:\Qt\5.6\mingw53_32\bin;C:\Qt\Tools\QtCreator\bin;%MINGW%\bin
+   - set QTDIR=C:\Qt\5.7.0\mingw53_32
+   - set PATH=%PATH%;C:\Qt\5.7.0\mingw53_32\bin;C:\Qt\Tools\QtCreator\bin;C:\MinGW\bin
    
 install:
   - qmake mupen64plus-gui.pro
