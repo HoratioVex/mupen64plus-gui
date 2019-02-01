@@ -1,25 +1,12 @@
 environment:
-  CTEST_OUTPUT_ON_FAILURE: 1
-  SDL2_VERSION: 2.0.9
-  SDL2_MIXER_VERSION: 2.0.4
-  QTDIR: C:\Qt\5.6.3
-  MINGW_PATH: C:\MinGW
-  SDLDIR: C:\MinGW
-  matrix:
-    - APPVEYOR_BUILD_WORKER_IMAGE: Visual Studio 2015
-      COMPILER: mingw
-      PLATFORMTOOLSET: "v140"
-    - APPVEYOR_BUILD_WORKER_IMAGE: Visual Studio 2017
-      COMPILER: msvc
-    - APPVEYOR_BUILD_WORKER_IMAGE: Visual Studio 2015
-      COMPILER: mingw
-      CMAKE_BUILD_TYPE: Release
-      PLATFORMTOOLSET: "v140"
-
-platform:
-  - x86
+    matrix:
+    - QTDIR: C:\Qt\5.6\mingw53_32
+      cname: mingw
+    - QTDIR: C:\Qt\5.11\mingw53_32
+      cname: mingw
 
 install:
+  - '%QTDIR%\bin\qtenv2.bat'
   - qmake mupen64plus-gui.pro
     
 build_script:
