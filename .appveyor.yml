@@ -11,10 +11,11 @@ install:
  - ps: Expand-Archive sdl2_mixer.zip -DestinationPath sdl2_mixer
  # set LIB=%LIB%;C:\projects\mupen64plus-gui\sdl2_mixer\SDL2_mixer-2.0.1\lib\x86;C:\projects\mupen64plus-gui\sdl2\SDL2-2.0.5\include
  # ps: Get-ChildItem -Recurse -Depth 4
- - xcopy .\SDL2\sdl2-2.0.5 %MINGW_PATH%\ /S
+ # xcopy .\SDL2\sdl2-2.0.5 %MINGW_PATH%\ /S
  # dir %MINGW_PATH%
  - xcopy .\SDL2\sdl2-2.0.5 %MINGW_PATH%\lib\gcc\x86_64-w64-mingw32\7.3.0\ /S
  - qmake mupen64plus-gui.pro
     
 build_script:
+  - ld -lSDL2 --verbose
   - mingw32-make 
