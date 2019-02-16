@@ -3,7 +3,7 @@ image: Visual Studio 2015
 install:
  - set QTVER=5.12.1
  - set MINGW_PATH=C:\mingw-w64\x86_64-7.3.0-posix-seh-rt_v5-rev0\mingw64
- - set PATH=%PATH%;C:\Qt\%QTVER%\mingw73_64;C:\Qt\%QTVER%\mingw73_64\bin;C:\Qt\Tools\QtCreator\bin;%MINGW_PATH%\bin
+ - set PATH=C:\Qt\%QTVER%\mingw73_64;C:\Qt\%QTVER%\mingw73_64\bin;C:\Qt\Tools\QtCreator\bin;%MINGW_PATH%\bin
  - ps: Start-FileDownload https://www.libsdl.org/release/SDL2-devel-2.0.5-VC.zip -FileName sdl2.zip
  - ps: Expand-Archive sdl2.zip -DestinationPath sdl2
  - set LIB=%LIB%;C:\projects\mupen64plus-gui\sdl2\SDL2-2.0.5\lib\x86
