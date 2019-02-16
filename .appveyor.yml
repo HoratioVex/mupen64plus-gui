@@ -13,7 +13,7 @@ install:
  # ps: Get-ChildItem -Recurse -Depth 4
  - xcopy .\SDL2\sdl2-2.0.5 %MINGW_PATH%\ /S
  # dir %MINGW_PATH%
- - xcopy .\SDL2\sdl2-2.0.5 %MINGW_PATH%\lib\gcc\x86_64-w64-mingw32\7.3.0\include\ /S
+ - xcopy .\SDL2\sdl2-2.0.5 %MINGW_PATH%\lib\gcc\x86_64-w64-mingw32\7.3.0\ /S
  - qmake mupen64plus-gui.pro
     
 build_script:
