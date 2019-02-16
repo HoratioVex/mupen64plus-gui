@@ -8,7 +8,7 @@ install:
  - set LIB=%LIB%;C:\projects\mupen64plus-gui\sdl2\SDL2-2.0.5\lib\x86
  - ps: Start-FileDownload https://www.libsdl.org/projects/SDL_mixer/release/SDL2_mixer-devel-2.0.1-VC.zip -FileName sdl2_mixer.zip
  - ps: Expand-Archive sdl2_mixer.zip -DestinationPath sdl2_mixer
- - set LIB=%LIB%;C:\projects\mupen64plus-gui\sdl2_mixer\SDL2_mixer-2.0.1\lib\x86
+ - set LIB=%LIB%;C:\projects\mupen64plus-gui\sdl2_mixer\SDL2_mixer-2.0.1\lib\x86;C:\projects\mupen64plus-gui\sdl2\SDL2-2.0.5\include
  - ps: Get-ChildItem -Recurse -Depth 4
  - qmake mupen64plus-gui.pro
     
