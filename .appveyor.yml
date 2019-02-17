@@ -26,3 +26,14 @@ install:
     
 build_script:
   - mingw32-make 
+
+after_build:
+  - dir
+  
+cache:
+  - SDL2-devel-%SDL2_VERSION%-mingw.tar.gz
+ 
+artifacts:
+  - path: mupen64plus-gui.exe
+    name: m64fl-build
+  
