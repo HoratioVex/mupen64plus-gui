@@ -14,15 +14,17 @@ build_script:
   - mingw32-make 
 
 after_build:
-  - copy C:\projects\mupen64plus-gui\SDL2-2.0.6\x86_64-w64-mingw32\bin\sdl2.dll release
-  - dir release /s
-  - windeployqt release
-  - dir release /s
-  
+  - md m64fl
+  - copy release\*.exe m64fl
+  - copy C:\projects\mupen64plus-gui\SDL2-2.0.6\x86_64-w64-mingw32\bin\sdl2.dll m64fl
+  - windeployqt m64fl
+  - 7z a m64fl.zip m64fl
+    
 cache:
   - SDL2-devel-2.0.6-mingw.tar.gz
  
 artifacts:
   - path: release\mupen64plus-gui.exe
     name: m64fl-build
-  
+  - path: .\m64fl.zip
+    name: m64fl-windeploy
