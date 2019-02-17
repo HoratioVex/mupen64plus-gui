@@ -5,7 +5,7 @@ install:
  - set SDL2_VERSION=2.0.5
  - set MINGW_PATH=C:\mingw-w64\x86_64-7.3.0-posix-seh-rt_v5-rev0\mingw64
  - set PATH=%PATH%;C:\Qt\%QTVER%\mingw73_64;C:\Qt\%QTVER%\mingw73_64\bin;C:\Qt\Tools\QtCreator\bin;%MINGW_PATH%\bin
- - ps: Start-FileDownload https://www.libsdl.org/release/SDL2-devel-%SDL2_VERSION%-mingw.tar.gz
+ - ps: Start-FileDownload https://www.libsdl.org/release/SDL2-devel-$Env:SDL2_VERSION-mingw.tar.gz
  - 7z x SDL2-devel-%SDL2_VERSION%-mingw.tar.gz -so | 7z x -si -ttar -oC:\
  - echo y | xcopy C:\SDL2-%SDL2_VERSION%\i686-w64-mingw32\* %MINGW_PATH%\ /S
  # ps: Start-FileDownload https://www.libsdl.org/release/SDL2-devel-2.0.5-mingw.tar.gz -FileName sdl2.tar.gz
