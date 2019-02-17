@@ -1,9 +1,0 @@
-os: windows
-language: cpp
-
-compiler:
-  - gcc
- 
-script:
-  - qmake mupen64plus-gui.pro
-  - make -j`nproc`
