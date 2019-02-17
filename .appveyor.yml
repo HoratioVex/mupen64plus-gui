@@ -8,7 +8,7 @@ install:
  - IF NOT EXIST SDL2-devel-%SDL2_VERSION%-mingw.tar.gz appveyor DownloadFile http://libsdl.org/release/SDL2-devel-%SDL2_VERSION%-mingw.tar.gz
  - 7z x SDL2-devel-%SDL2_VERSION%-mingw.tar.gz -so | 7z x -si -ttar
   
- - qmake mupen64plus-gui.pro
+ - qmake mupen64plus-gui-av.pro
     
 build_script:
   - mingw32-make 
