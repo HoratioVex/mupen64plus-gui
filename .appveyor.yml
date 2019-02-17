@@ -2,20 +2,20 @@ image: Visual Studio 2015
 
 install:
  - set QTVER=5.12.1
- - set SDL2_VERSION=2.0.5
+ - set SDL2_VERSION=2.0.6
  - set MINGW_PATH=C:\mingw-w64\x86_64-7.3.0-posix-seh-rt_v5-rev0\mingw64
  - set PATH=%PATH%;C:\Qt\%QTVER%\mingw73_64;C:\Qt\%QTVER%\mingw73_64\bin;C:\Qt\Tools\QtCreator\bin;%MINGW_PATH%\bin
- - ps: Start-FileDownload https://www.libsdl.org/release/SDL2-devel-$Env:SDL2_VERSION-mingw.tar.gz
- - 7z x SDL2-devel-%SDL2_VERSION%-mingw.tar.gz -so | 7z x -si -ttar -oC:\
- - echo y | xcopy C:\SDL2-%SDL2_VERSION%\i686-w64-mingw32\* %MINGW_PATH%\ /S
- - xcopy C:\SDL2-%SDL2_VERSION%\i686-w64-mingw32\* %MINGW_PATH%\lib\gcc\x86_64-w64-mingw32\7.3.0\ /S
+ - IF NOT EXIST SDL2_mixer-devel-%SDL2_MIXER_VERSION%-mingw.tar.gz appveyor DownloadFile https://libsdl.org/projects/SDL_mixer/release/SDL2_mixer-devel-%SDL2_MIXER_VERSION%-mingw.tar.gz
+ - 7z x SDL2-devel-%SDL2_VERSION%-mingw.tar.gz -so | 7z x -si -ttar
+ # echo y | xcopy C:\SDL2-%SDL2_VERSION%\i686-w64-mingw32\* %MINGW_PATH%\ /S
+ # xcopy C:\SDL2-%SDL2_VERSION%\i686-w64-mingw32\* %MINGW_PATH%\lib\gcc\x86_64-w64-mingw32\7.3.0\ /S
  # ps: Start-FileDownload https://www.libsdl.org/release/SDL2-devel-2.0.5-mingw.tar.gz -FileName sdl2.tar.gz
  # ps: Expand-Archive sdl2.tar.gz -DestinationPath sdl2
  # set LIB=%LIB%;C:\projects\mupen64plus-gui\sdl2\SDL2-2.0.5\lib\x86
  # ps: Start-FileDownload https://www.libsdl.org/projects/SDL_mixer/release/SDL2_mixer-devel-2.0.1-VC.zip -FileName sdl2_mixer.zip
  # ps: Expand-Archive sdl2_mixer.zip -DestinationPath sdl2_mixer
  # set LIB=%LIB%;C:\projects\mupen64plus-gui\sdl2_mixer\SDL2_mixer-2.0.1\lib\x86;C:\projects\mupen64plus-gui\sdl2\SDL2-2.0.5\include
- # ps: Get-ChildItem -Recurse -Depth 4
+ - ps: Get-ChildItem -Recurse -Depth 4
  # copy .\SDL2\sdl2-2.0.5\lib\x64\*.* .\SDL2\sdl2-2.0.5\lib
  # copy .\SDL2\sdl2-2.0.5\lib\x64\*.* .\
  # dir %MINGW_PATH%
