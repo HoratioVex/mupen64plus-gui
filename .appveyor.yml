@@ -7,7 +7,7 @@ install:
  - set PATH=%PATH%;C:\Qt\%QTVER%\mingw73_64;C:\Qt\%QTVER%\mingw73_64\bin;C:\Qt\Tools\QtCreator\bin;%MINGW_PATH%\bin
  - IF NOT EXIST SDL2-devel-%SDL2_VERSION%-mingw.tar.gz appveyor DownloadFile http://libsdl.org/release/SDL2-devel-%SDL2_VERSION%-mingw.tar.gz
  - 7z x SDL2-devel-%SDL2_VERSION%-mingw.tar.gz -so | 7z x -si -ttar
- - copy C:\projects\mupen64plus-gui\SDL2-2.0.6\i686-w64-mingw32\bin\sdl2.dll .\
+ # copy C:\projects\mupen64plus-gui\SDL2-2.0.6\x86_64-w64-mingw32\bin\sdl2.dll .\
  
  - qmake mupen64plus-gui.pro
     
@@ -15,7 +15,7 @@ build_script:
   - mingw32-make 
 
 after_build:
-  - dir /s
+  - dir release
   
 cache:
   - SDL2-devel-2.0.6-mingw.tar.gz
