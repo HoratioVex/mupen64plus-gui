@@ -8,32 +8,19 @@ install:
  - IF NOT EXIST SDL2-devel-%SDL2_VERSION%-mingw.tar.gz appveyor DownloadFile http://libsdl.org/release/SDL2-devel-%SDL2_VERSION%-mingw.tar.gz
  - 7z x SDL2-devel-%SDL2_VERSION%-mingw.tar.gz -so | 7z x -si -ttar
  - copy C:\projects\mupen64plus-gui\SDL2-2.0.6\i686-w64-mingw32\bin\sdl2.dll .\
- # copy C:\projects\mupen64plus-gui\SDL2-2.0.6\i686-w64-mingw32\bin\sdl2.dll %MINGW_PATH%\x86_64-w64-mingw32\bin
- # echo y | xcopy C:\SDL2-%SDL2_VERSION%\i686-w64-mingw32\* %MINGW_PATH%\ /S
- # xcopy C:\SDL2-%SDL2_VERSION%\i686-w64-mingw32\* %MINGW_PATH%\lib\gcc\x86_64-w64-mingw32\7.3.0\ /S
- # ps: Start-FileDownload https://www.libsdl.org/release/SDL2-devel-2.0.5-mingw.tar.gz -FileName sdl2.tar.gz
- # ps: Expand-Archive sdl2.tar.gz -DestinationPath sdl2
- # set LIB=%LIB%;C:\projects\mupen64plus-gui\sdl2\SDL2-2.0.5\lib\x86
- # ps: Start-FileDownload https://www.libsdl.org/projects/SDL_mixer/release/SDL2_mixer-devel-2.0.1-VC.zip -FileName sdl2_mixer.zip
- # ps: Expand-Archive sdl2_mixer.zip -DestinationPath sdl2_mixer
- # set LIB=%LIB%;C:\projects\mupen64plus-gui\sdl2_mixer\SDL2_mixer-2.0.1\lib\x86;C:\projects\mupen64plus-gui\sdl2\SDL2-2.0.5\include
- # dir %MINGW_PATH% /s
- # copy .\SDL2\sdl2-2.0.5\lib\x64\*.* .\SDL2\sdl2-2.0.5\lib
- # copy .\SDL2\sdl2-2.0.5\lib\x64\*.* .\
- - dir /s
- # xcopy .\SDL2\sdl2-2.0.5 %MINGW_PATH%\lib\gcc\x86_64-w64-mingw32\7.3.0\ /S
+ 
  - qmake mupen64plus-gui.pro
     
 build_script:
   - mingw32-make 
 
 after_build:
-  - dir
+  - dir /s
   
 cache:
-  - SDL2-devel-%SDL2_VERSION%-mingw.tar.gz
+  - SDL2-devel-2.0.6-mingw.tar.gz
  
 artifacts:
-  - path: mupen64plus-gui.exe
+  - path: release\mupen64plus-gui.exe
     name: m64fl-build
   
